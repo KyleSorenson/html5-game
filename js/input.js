@@ -16,6 +16,14 @@ function InputHandler(Player) {
         Player.moveLeft();
         break;
 
+      case 'Space':
+        if (Player.jumpEnabled) {
+          event.preventDefault()
+          Player.jump();
+          Player.jumpEnabled = false;
+        }
+        break;
+
     }
 
   });
@@ -25,12 +33,12 @@ function InputHandler(Player) {
     switch (event.code) {
 
       case 'ArrowRight':
-        // if (Player.vel.x > 0) Player.stop();
+        if (Player.vel.x > 0) Player.stop();
         Player.stop();
         break;
         
         case 'ArrowLeft':
-        // if (Player.vel.x < 0) Player.stop();
+        if (Player.vel.x < 0) Player.stop();
         Player.stop();
         break;
 
