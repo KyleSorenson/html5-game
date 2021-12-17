@@ -1,0 +1,12 @@
+{
+  "name": "html5-game",
+  "version": "1.0.0",
+  "description": "HTML5 Canvas Game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "live-server --port=1234 --entry-file=index.html"
+  },
+  "author": "Kyle Sorenson",
+  "license": "ISC"
+}
