@@ -29,6 +29,11 @@ function gameLoop(timestamp) {
   Player.update(dt);
   Player.draw(ctx);
 
+  ctx.fillStyle = 'white';
+  ctx.font = '16px sans-serif';
+  ctx.fillText(`Position: ` + Math.round(Player.pos.x), 20, 30);
+  ctx.fillText(`Velocity: ` + Math.round(Player.vel.x), 20, 55);
+  ctx.fillText(`Acceleration: ` + Math.round(Player.acc.x), 20, 80);
   requestAnimationFrame(gameLoop);
 }
 

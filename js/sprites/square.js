@@ -45,14 +45,15 @@ function Square(x, y, color) {
 
   this.update = function( deltaTime ) {
 
-    this.acc.x += this.vel.x * PLAYER_FRICTION;
+    this.vel.x += this.vel.x * PLAYER_FRICTION;
     this.vel.x += this.acc.x;
     this.pos.x += ( this.vel.x + .5 * this.acc.x) / deltaTime;
-    
 
     // Stops Player at Boundary
     if (this.pos.x < 0 ) this.pos.x = 0;
-    if (this.pos.x > GAME_WIDTH - this.rect.width) this.pos.x = GAME_WIDTH - this.rect.width;
+    // if (this.pos.x > GAME_WIDTH - this.rect.width) this.pos.x = GAME_WIDTH - this.rect.width;
+
+    if (this.pos.x > GAME_WIDTH) this.pos.x = this.pos.x % GAME_WIDTH;
 
   }
 

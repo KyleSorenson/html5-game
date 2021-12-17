@@ -2,8 +2,8 @@
 
 let GAME_WIDTH = 800;
 let GAME_HEIGHT = 450;
-let PLAYER_ACC = 10;
-let PLAYER_FRICTION = -2;
+let PLAYER_ACC = 40;
+let PLAYER_FRICTION = -.2;
 
 let canvas = document.getElementById('game');
 canvas.width = GAME_WIDTH;
