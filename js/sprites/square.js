@@ -1,6 +1,6 @@
 "use strict";
 
-import { GAME_WIDTH, PLAYER_ACC, PLAYER_FRICTION } from "../config.js";
+import { GAME_WIDTH, PLAYER_ACC, PLAYER_MAXSPEED } from "../config.js";
 
 function Square(x, y, color) {
 
@@ -28,6 +28,7 @@ function Square(x, y, color) {
     y: 0
   }
 
+  this.maxSpeed = PLAYER_MAXSPEED;
 
 
   this.moveLeft = function() {
@@ -40,21 +41,23 @@ function Square(x, y, color) {
   
   this.stop = function() {
     this.acc.x = 0;
+    this.vel.x = 0;
   }
 
 
   this.update = function( deltaTime ) {
 
-    this.vel.x += this.vel.x * PLAYER_FRICTION;
-    this.vel.x += this.acc.x;
+    if (this.vel.x >= 0) {
+      this.vel.x = this.vel.x < this.maxSpeed ? this.vel.x += this.acc.x : this.maxSpeed;
+    }
+    if (this.vel.x < 0) {
+      this.vel.x = this.vel.x > -this.maxSpeed ? this.vel.x += this.acc.x : -this.maxSpeed;
+    }
+
     this.pos.x += ( this.vel.x + .5 * this.acc.x) / deltaTime;
 
-    // Stops Player at Boundary
-    if (this.pos.x < 0 ) this.pos.x = 0;
-    // if (this.pos.x > GAME_WIDTH - this.rect.width) this.pos.x = GAME_WIDTH - this.rect.width;
-
     if (this.pos.x > GAME_WIDTH) this.pos.x = this.pos.x % GAME_WIDTH;
-
+    if (this.pos.x < 0) this.pos.x = GAME_WIDTH - this.pos.x;
   }
 
   this.draw = function(ctx) {

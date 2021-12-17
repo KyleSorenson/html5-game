@@ -7,10 +7,12 @@ function InputHandler(Player) {
     switch (event.code) {
 
       case 'ArrowRight':
+        event.preventDefault();
         Player.moveRight();
         break;
       
       case 'ArrowLeft':
+        event.preventDefault()
         Player.moveLeft();
         break;
 
