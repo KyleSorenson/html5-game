@@ -94,6 +94,17 @@ class Player {
     this.sprite.draw(ctx);
   }
 
+  drawOverlays(ctx, x = 20, y = 30) {
+
+    ctx.fillStyle = 'white';
+    ctx.font = '16px sans-serif';
+    ctx.fillText(`Player 1:`, x, y);
+    ctx.fillText(`Position: (${Math.round(this.sprite.pos.x)}, ${Math.round(this.sprite.pos.y)})`, x, y + 25);
+    ctx.fillText(`Velocity: (${Math.round(this.vel.x)}, ${Math.round(this.vel.y)})`, x, y + 50);
+    ctx.fillText(`Acceleration: (${Math.round(this.acc.x)}, ${Math.round(this.acc.y)})`, x, y + 75);
+    
+  }
+
 }
 
 export default Player;

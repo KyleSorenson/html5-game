@@ -4,14 +4,15 @@ import Sprite from "../sprite.js";
 
 class BallSprite extends Sprite {
   
-  constructor(width = 50, height = 50) {
+  constructor(width = 50, height = 50, color = 'gray') {
     super(width, height);
+    this.color = color;
   }
     
   draw(ctx) {
 
     // Body
-    ctx.fillStyle = 'gray';
+    ctx.fillStyle = this.color;
 
     ctx.beginPath();
     ctx.arc(this.pos.x, this.pos.y, this.rect.width/2, 0, Math.PI * 2);

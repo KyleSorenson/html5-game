@@ -4,14 +4,15 @@ import Sprite from "../sprite.js";
 
 class BlockSprite extends Sprite {
   
-  constructor(width = 50, height = 50) {
+  constructor(width = 50, height = 50, color = 'gray') {
     super(width, height);
+    this.color = color;
   }
     
   draw(ctx) {
 
     // Body
-    ctx.fillStyle = 'gray';
+    ctx.fillStyle = this.color;
     ctx.fillRect(
       this.rect.topLeft.x,
       this.rect.topLeft.y,
