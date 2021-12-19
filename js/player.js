@@ -91,7 +91,7 @@ class Player {
   }
 
   draw(ctx) {
-    this.sprite.draw(ctx);
+    this.sprite.draw(ctx, this.vel);
   }
 
   drawOverlays(ctx, x = 20, y = 30) {
